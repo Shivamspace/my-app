@@ -1,0 +1,25 @@
+<nav class="navbar  navbar-dark bg-dark">
+
+  <ul class="navbar-nav">
+    <li><a *ngIf="!isloggedin" class="nav-link" [routerLink]="['login']">
+        <span class="text-white">Login</span>
+      </a></li>
+
+    <li><a *ngIf="isloggedin" class="nav-link" [routerLink]="['welcome']">
+        <span class="text-white">Products</span>
+      </a></li>
+    <li><a *ngIf="isloggedin" class="nav-link" [routerLink]="['logout']">
+        <span class="text-white">Logout</span>
+      </a></li>
+  </ul>
+</nav>
+
+<!-- <div><a href="https://www.javainuse.com" class="navbar-brand">JavaInUse</a></div> -->
+
+
+
+<!-- 
+Copyright Google LLC. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at https://angular.io/license
+-->
