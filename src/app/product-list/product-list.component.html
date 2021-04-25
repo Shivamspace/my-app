@@ -1,24 +1,29 @@
 <h2>Products</h2>
 Welcome my friend {{user}}
 <div class="container">
+
+  <div class="alert alert-success" *ngIf="DeleteMessage">
+    {{DeleteMessage}}
+  </div>
   <table class="table">
     <thead>
       <tr>
-        <th>id</th>
+        <!-- <th>id</th> -->
         <th>Price</th>
         <th>Name</th>
         <th>Description</th>
+        <th colspan="2">Action</th>
       </tr>
     </thead>
     <tbody>
       <!--   for (Todo todo: todos) {  -->
               <tr *ngFor="let prooduct of products">
-                <td>{{prooduct.id}}</td>
+                <!-- <td>{{prooduct.id}}</td> -->
                 <td>{{prooduct.price }}</td>
                 <td>{{prooduct.name}}</td>
                 <td>{{prooduct.description}}</td>
-                <!-- <td><button (click)="updateTodo(todo.id)" class="btn btn-success">Update</button></td>
-                <td><button (click)="deleteTodo(todo.id)" class="btn btn-warning">Delete</button></td> -->
+               <td><button (click)="updateProduct(prooduct.id)" class="btn btn-success">Update</button></td>
+                <td><button (click)="deleteProduct(prooduct.id)" class="btn btn-warning">Delete</button></td>
               </tr>
       <!-- } -->
     </tbody>
@@ -26,7 +31,7 @@ Welcome my friend {{user}}
   </table>
 
   <div class="row">
-      <button (click)="message()" class="btn btn-success">Add</button> 
+      <button (click)="message()" class="btn btn-success">Add</button> {{messages}}  <button (click)="createProduct(-1)" class="btn btn-success">Add product</button>
   </div>
 
 </div>

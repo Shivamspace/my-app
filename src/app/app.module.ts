@@ -1,3 +1,4 @@
+import { MyServiceService } from './service/my-service.service';
 import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 import { RouterModule } from "@angular/router";
@@ -10,7 +11,8 @@ import { LoginComponent } from "./login/login.component";
 import { FooterComponent } from "./footer/footer.component";
 import { LogoutComponent } from "./logout/logout.component";
 import { AuthGaurdService } from "./service/authgaurd.service";
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
+import { ProductviewComponent } from './productview/productview.component';
 
 @NgModule({
   imports: [
@@ -30,6 +32,10 @@ import { HttpClientModule } from "@angular/common/http";
         path: "logout",
         component: LogoutComponent,
         canActivate: [AuthGaurdService]
+      },{
+        path: "product/:id",
+        component: ProductviewComponent,
+        canActivate: [AuthGaurdService]
       },
       { path: "*", component: LoginComponent }
     ])
@@ -40,9 +46,13 @@ import { HttpClientModule } from "@angular/common/http";
     ProductListComponent,
     LoginComponent,
     FooterComponent,
-    LogoutComponent
+    LogoutComponent,
+    ProductviewComponent
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: MyServiceService, multi: true }
+ ],
 })
 export class AppModule {}
 

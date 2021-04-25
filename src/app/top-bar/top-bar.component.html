@@ -5,11 +5,11 @@
         <span class="text-white">Login</span>
       </a></li>
 
-    <li><a *ngIf="isloggedin" class="nav-link" [routerLink]="['welcome']">
+    <!-- <li><a *ngIf="isloggedin" class="nav-link" [routerLink]="['welcome']">
         <span class="text-white">Products</span>
-      </a></li>
+      </a></li> -->
     <li><a *ngIf="isloggedin" class="nav-link" [routerLink]="['logout']">
-        <span class="text-white">Logout</span>
+        <span class="text-white text-right">Logout</span>
       </a></li>
   </ul>
 </nav>
@@ -18,7 +18,7 @@
 
 
 
-<!-- 
+<!--
 Copyright Google LLC. All Rights Reserved.
 Use of this source code is governed by an MIT-style license that
 can be found in the LICENSE file at https://angular.io/license

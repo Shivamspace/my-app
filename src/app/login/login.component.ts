@@ -19,11 +19,28 @@ export class LoginComponent implements OnInit {
   errorMessage: "invalid Credentials";
   ngOnInit() {}
   handleLogin() {
-    if (this.authservice.authenicate(this.username, this.password)) {
-      this.invalidlogin = false;
-      this.router.navigate(["welcome", this.username]);
-    } else {
-      this.invalidlogin = true;
-    }
+    this.authservice.executeAuthenticationService(this.username, this.password).subscribe(
+
+
+
+      data=>{
+
+        console.log(data);
+        this.invalidlogin = false;
+        this.router.navigate(["welcome", this.username]);
+      },
+      error=>{
+
+        console.log(error);
+        this.invalidlogin = true;
+      }
+    )
+
+
+
+
+
+
+
   }
 }
