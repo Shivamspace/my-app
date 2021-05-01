@@ -94,6 +94,23 @@ export class authenticationService {
       );
     //console.log("Execute Hello World Bean Service")
   }
+  executeJWTAuthenticationService(username, password) {
+
+    return this.httpclient.post<any>(
+      `http://localhost:8080/authenticate`,{
+        username,
+        password
+      }).pipe(
+        map(
+          data => {
+            sessionStorage.setItem(AUTHENTICATED_USER, username);
+            sessionStorage.setItem(TOKEN, `Bearer ${data.token}`);
+            return data;
+          }
+        )
+      );
+    //console.log("Execute Hello World Bean Service")
+  }
 
   getAuthenticatedUser() {
     return sessionStorage.getItem(AUTHENTICATED_USER)

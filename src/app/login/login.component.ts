@@ -17,9 +17,13 @@ export class LoginComponent implements OnInit {
   password: "";
   invalidlogin: boolean;
   errorMessage: "invalid Credentials";
+  body:any
   ngOnInit() {}
   handleLogin() {
-    this.authservice.executeAuthenticationService(this.username, this.password).subscribe(
+    this.body={username:this.username,
+      password:this.password};
+    this.authservice.executeJWTAuthenticationService(this.username,
+      this.password).subscribe(
 
 
 
