@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
-
+import { Inject }  from '@angular/core';
+import { DOCUMENT } from '@angular/common';
 import { Router } from "@angular/router";
 import { API_URL } from "../constants";
 import {map} from 'rxjs/operators';
@@ -13,7 +14,7 @@ export const AUTHENTICATED_USER = 'authenticaterUser'
 
 export class authenticationService {
 
-  constructor(private httpclient: HttpClient) {}
+  constructor(private httpclient: HttpClient,@Inject(DOCUMENT) document) {}
   // authenicate(username, password) {
   //   if (username === "shivam" && password === "shivam") {
   //     console.log("true");
@@ -125,6 +126,7 @@ export class authenticationService {
     let user = sessionStorage.getItem(AUTHENTICATED_USER)
     return !(user === null)
   }
+
 
   logout(){
     sessionStorage.removeItem(AUTHENTICATED_USER)

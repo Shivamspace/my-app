@@ -1,10 +1,38 @@
 <app-top-bar></app-top-bar>
-
-<div class="container">
-  <router-outlet></router-outlet>
+<div class="container"></div>
+<!-- <div class="container">
+  <div class="row us-spinner-wrapper">
+    <div id="loader">
+        <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="loading"></div>
+    </div>
+  </div>
+</div> -->
+<div *ngIf="LoaderService.isLoading.value" class="loader-container">
+  <mat-spinner style="top: 50%; left: 50%;"></mat-spinner>
+  <!-- <div id="loader">
+    <div class="dot"></div>
+  <div class="dot"></div>
+  <div class="dot"></div>
+  <div class="dot"></div>
+  <div class="dot"></div>
+  <div class="dot"></div>
+  <div class="dot"></div>
+  <div class="dot"></div>
+  <div class="loading"></div>
+</div> -->
 </div>
+  <router-outlet></router-outlet>
+
 <app-footer></app-footer>
-<!-- 
+<!--
 Copyright Google LLC. All Rights Reserved.
 Use of this source code is governed by an MIT-style license that
 can be found in the LICENSE file at https://angular.io/license

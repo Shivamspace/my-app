@@ -13,13 +13,17 @@ import { LogoutComponent } from "./logout/logout.component";
 import { AuthGaurdService } from "./service/authgaurd.service";
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { ProductviewComponent } from './productview/productview.component';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   imports: [
     BrowserModule,
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
+    MatProgressSpinnerModule,
     RouterModule.forRoot([
       { path: "", component: LoginComponent },
       { path: "login", component: LoginComponent },
@@ -38,7 +42,9 @@ import { ProductviewComponent } from './productview/productview.component';
         canActivate: [AuthGaurdService]
       },
       { path: "*", component: LoginComponent }
-    ])
+    ]),
+
+    BrowserAnimationsModule
   ],
   declarations: [
     AppComponent,
@@ -48,6 +54,7 @@ import { ProductviewComponent } from './productview/productview.component';
     FooterComponent,
     LogoutComponent,
     ProductviewComponent
+
   ],
   bootstrap: [AppComponent],
   providers: [

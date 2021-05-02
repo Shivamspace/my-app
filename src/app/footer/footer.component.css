@@ -1,5 +1,8 @@
 .footer {
   font-size: 20px;
   background-color: black;
-  
+  position: absolute
+  ;
+  width: 100%;
+bottom: 0;
 }

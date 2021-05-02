@@ -20,6 +20,7 @@ export class LoginComponent implements OnInit {
   body:any
   ngOnInit() {}
   handleLogin() {
+
     this.body={username:this.username,
       password:this.password};
     this.authservice.executeJWTAuthenticationService(this.username,
@@ -30,6 +31,7 @@ export class LoginComponent implements OnInit {
       data=>{
 
         console.log(data);
+
         this.invalidlogin = false;
         this.router.navigate(["welcome", this.username]);
       },
