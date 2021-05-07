@@ -98,7 +98,7 @@ export class authenticationService {
   executeJWTAuthenticationService(username, password) {
 
     return this.httpclient.post<any>(
-      `http://localhost:8080/authenticate`,{
+      `${API_URL}/authenticate`,{
         username,
         password
       }).pipe(
